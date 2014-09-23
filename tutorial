@@ -1,0 +1,13 @@
+This tutorial is for personal use. It only works for my own board.
+
+1. Install U-Boot:
+sudo dd if=u-boot-2009.08/u-boot.bin of=/dev/mmcblk0 bs=512 seek=2 skip=2 conv=fsync 
+
+2. Install Kernel:
+sudo dd if=linux-3.0.35/arch/arm/boot/uImage of=/dev/mmcblk0 bs=512 seek=2048 conv=fsync
+
+3. Boot to U-boot and set the following parameters.
+setenv bootcmd_mmc 'run bootargs_base bootargs_mmc;mmc dev 2;mmc read ${loadaddr} 0x800 0x2000;bootm'
+
+By default, I will use the filesystem on flash.
+
