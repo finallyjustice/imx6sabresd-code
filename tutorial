@@ -11,3 +11,9 @@ setenv bootcmd_mmc 'run bootargs_base bootargs_mmc;mmc dev 2;mmc read ${loadaddr
 
 By default, I will use the filesystem on flash.
 
+
+To compile U-Boot:
+	make mx6q_sabresd_config
+
+To compile kernel:
+	make uImage
