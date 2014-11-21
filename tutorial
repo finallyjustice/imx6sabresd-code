@@ -8,6 +8,7 @@ sudo dd if=linux-3.0.35/arch/arm/boot/uImage of=/dev/mmcblk0 bs=512 seek=2048 co
 
 3. Boot to U-boot and set the following parameters.
 setenv bootcmd_mmc 'run bootargs_base bootargs_mmc;mmc dev 2;mmc read ${loadaddr} 0x800 0x2000;bootm'
+setenv bootargs_mmc 'setenv bootargs ${bootargs} root=/dev/mmcblk0p1 rootwait rw video=mxcfb0:dev=ldb,1024x600M@60,if=RGB666 ldb=sin0 video=mxcfb1:dev=lcd'
 
 By default, I will use the filesystem on flash.
 
